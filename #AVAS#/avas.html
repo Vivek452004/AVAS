@@ -30,26 +30,18 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background-color: var(--bg-dark); color: var(--text-light); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-
-    /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: var(--bg-dark); }
     ::-webkit-scrollbar-thumb { background: var(--border-dark); border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
-
-    /* Header */
     header { background-color: rgba(5, 7, 13, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; }
     header.scrolled { box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35); border-bottom: 1px solid var(--border-dark); }
-
-    /* Hero Section */
     .hero-section { padding-top: 8rem; padding-bottom: 8rem; background: linear-gradient(180deg, var(--card-elevated) 0%, var(--bg-dark) 100%); }
     .text-gradient { background-image: linear-gradient(to right, #a5b4fc, #818cf8); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero-search-container { background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(8px); border: 1px solid var(--border-dark); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
     .hero-search-tab.active { color: white; border-color: var(--brand-primary); }
     .hero-search-input { background-color: transparent; border: none; color: white; }
     .hero-search-input:focus { outline: none; box-shadow: none; }
-
-    /* Plot Card */
     .plot-card { background-color: var(--card-dark); border-radius: 0.75rem; overflow: hidden; border: 1px solid var(--border-dark); transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .plot-card:hover { transform: translateY(-8px); box-shadow: 0 0 35px rgba(99, 102, 241, 0.2); }
     .plot-card-image-wrapper { position: relative; aspect-ratio: 16 / 10; cursor: pointer; }
@@ -59,248 +51,77 @@
     .checkbox-icon .ph-check { transform: scale(0.5); opacity: 0; transition: all .2s ease-in-out; }
     .select-plot-checkbox:checked + .checkbox-icon { background-color: var(--brand-primary); border-color: var(--brand-primary); }
     .select-plot-checkbox:checked + .checkbox-icon .ph-check { transform: scale(1); opacity: 1; }
-
-    /* Modals */
     .modal { transition: opacity .25s ease; }
     .modal-content { background-color: var(--card-dark); transition: transform .25s ease, opacity .25s ease; }
     .loader { border: 4px solid var(--border-dark); border-radius: 50%; border-top: 4px solid var(--brand-primary); width: 40px; height: 40px; animation: spin 1s linear infinite; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
     .form-input { width: 100%; padding: .75rem 1rem; background-color: var(--card-elevated); border: 1px solid var(--border-dark); color: var(--text-light); border-radius: .5rem; transition: border-color .15s ease, box-shadow .15s ease; }
     .form-input:focus { outline: none; border-color: var(--brand-primary); box-shadow: 0 0 0 3px var(--brand-glow); }
-
     .city-filter-btn { transition: all .2s ease; }
     .city-filter-btn.active { background-color: var(--brand-primary) !important; color: white !important; box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35); }
-
     button:disabled { opacity: .5; cursor: not-allowed; }
     .nav-link.active { color: #a5b4fc; font-weight: 700; }
-
-    /* Animations & Features */
     @keyframes fade-in-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .animate-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     .animate-on-scroll.in-view { opacity: 1; transform: translateY(0); }
-
     .feature-card { background-color: var(--card-elevated); border: 1px solid var(--border-dark); padding: 2rem; border-radius: 1rem; text-align: center; transition: all .3s ease; }
     .feature-card:hover { transform: translateY(-5px); border-color: var(--brand-primary); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
     .feature-icon { width: 4rem; height: 4rem; margin: 0 auto; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-
-    /* Add Plot Modal Stepper */
     @keyframes pulse { 50% { box-shadow: 0 0 0 4px rgba(99, 102, 241, 0); } }
     .step-circle { transition: all 0.3s ease; }
     .step.active .step-circle { border-color: var(--brand-primary); background-color: var(--brand-primary); color: white; animation: pulse 2s infinite; box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
-     .step-label { font-size: 0.875rem; margin-top: 0.5rem; transition: color 0.3s ease; color: #6b7280; }
+    .step-label { font-size: 0.875rem; margin-top: 0.5rem; transition: color 0.3s ease; color: #6b7280; }
     .step.active .step-label { color: white; font-weight: 600; }
     .step.completed .step-circle { border-color: #16a34a; background-color: #16a34a; color: white; }
     .step.completed .step-label { color: var(--text-light); }
     .step:not(:last-child)::after { content: ''; position: absolute; top: 1.25rem; left: 50%; width: 100%; height: 2px; background-color: var(--border-dark); transform: translateY(-50%); z-index: 0; transition: background-color .4s ease; }
     .step.completed::after { background-color: #16a34a; }
-
     .drop-area { border: 2px dashed var(--border-dark); padding: 2.5rem 1rem; text-align: center; cursor: pointer; border-radius: 0.75rem; transition: all 0.2s ease; }
     .drop-area.dragover { border-color: var(--brand-primary); background-color: rgba(99, 102, 241, 0.1); }
-     .drop-area-sm { border: 2px solid var(--border-dark); padding: 1rem; cursor: pointer; border-radius: 0.75rem; transition: all 0.2s ease; }
+    .drop-area-sm { border: 2px solid var(--border-dark); padding: 1rem; cursor: pointer; border-radius: 0.75rem; transition: all 0.2s ease; }
     .drop-area-sm:hover { border-color: var(--brand-primary); }
     .drop-area-sm.dragover { border-color: var(--brand-primary); background-color: rgba(99, 102, 241, 0.1); }
     .preview-image-container { position: relative; width: 100%; padding-top: 100%; }
     .preview-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; }
-    .remove-image-btn {
-        position: absolute;
-        top: -0.5rem;
-        right: -0.5rem;
-        background-color: rgba(255, 0, 0, 0.8);
-        color: white;
-        border-radius: 9999px;
-        width: 1.5rem;
-        height: 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        cursor: pointer;
-        border: 2px solid var(--bg-dark);
-    }
-
+    .remove-image-btn { position: absolute; top: -0.5rem; right: -0.5rem; background-color: rgba(255, 0, 0, 0.8); color: white; border-radius: 9999px; width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; border: 2px solid var(--bg-dark); }
     .gradient-btn { background-image: linear-gradient(to right, #4f46e5, #6366f1, #818cf8); transition: all 0.2s ease; background-size: 200% auto; }
     .gradient-btn:hover { box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.6); background-position: right center; }
-
-    /* Chat Window */
     .chat-bubble-user { background-color: var(--brand-primary); }
     .chat-bubble-ai { background-color: var(--card-elevated); }
     .chat-bubble-ai p { margin: 0; }
     .chat-bubble-ai strong { color: var(--text-light); }
     .chat-bubble-ai ul { padding-left: 1.25rem; margin-top: 0.5rem; margin-bottom: 0; }
     .chat-bubble-ai li { margin-bottom: 0.25rem; }
-
-    /* Category Card */
     .category-card { position: relative; border-radius: 0.75rem; overflow: hidden; aspect-ratio: 4 / 3; transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .category-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
     .category-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
     .category-card:hover img { transform: scale(1.05); }
     .category-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1rem; }
     .category-count { position: absolute; top: 1rem; right: 1rem; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px); color: white; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 9999px; }
-
-    /* AI Analysis Modal Enhancements */
-    @keyframes shimmer {
-      0% { background-position: -1000px 0; }
-      100% { background-position: 1000px 0; }
-    }
-    .shimmer {
-        background: linear-gradient(to right, transparent 0%, #1e293b 50%, transparent 100%);
-        background-size: 2000px 100%;
-        animation: shimmer 2s linear infinite;
-    }
-    .plan-card.popular {
-        border-color: var(--brand-primary);
-        box-shadow: 0 0 25px rgba(99, 102, 241, 0.3);
-    }
-
-    /* NEW LOGIN STYLES */
-    @keyframes float {
-      0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
-      25% { opacity: 0.7; }
-      50% { transform: translateY(-20px) translateX(10px) rotate(10deg); }
-      75% { opacity: 0.7; }
-      100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0; }
-    }
-    .login-icon {
-        position: absolute;
-        color: var(--border-dark);
-        animation: float 15s infinite ease-in-out;
-    }
-    .form-input-icon {
-      position: absolute;
-      top: 50%;
-      left: 1rem;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-    }
-    .ad-type-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 1.5rem 1rem;
-        border: 2px solid var(--border-dark);
-        border-radius: 0.75rem;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-        text-align: center;
-    }
-    .ad-type-card:hover {
-        border-color: var(--brand-primary);
-        background-color: rgba(99, 102, 241, 0.1);
-    }
-    input[type="radio"]:checked + .ad-type-card {
-        border-color: var(--brand-primary);
-        box-shadow: 0 0 15px var(--brand-glow);
-        background-color: rgba(99, 102, 241, 0.1);
-    }
-
-    .submit-button-gradient {
-        width: 100%;
-        padding: 0.8rem 1rem;
-        font-weight: 600;
-        color: white;
-        border-radius: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        background-image: linear-gradient(to right, #4f46e5, #6366f1, #818cf8);
-        transition: all 0.3s ease;
-        background-size: 200% auto;
-        border: none;
-    }
-    .submit-button-gradient:hover {
-        box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.6);
-        background-position: right center;
-    }
-
-    .form-label {
-        display: block;
-        font-weight: 600;
-        color: var(--text-light);
-        margin-bottom: 0.5rem;
-    }
-
-    /* Google Places Autocomplete Styling */
-    .pac-container {
-        background-color: var(--card-elevated);
-        border: 1px solid var(--border-dark);
-        border-radius: 0.5rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        z-index: 9999 !important;
-    }
-    .pac-item {
-        padding: 0.75rem;
-        cursor: pointer;
-        color: var(--text-light);
-        border: none;
-    }
-    .pac-item:hover {
-        background-color: var(--brand-primary);
-    }
-    .pac-item-query {
-        font-weight: 600;
-    }
-    .pac-icon {
-        display: none;
-    }
-    .role-card {
-        padding: 1rem;
-        border: 2px solid var(--border-dark);
-        border-radius: 0.5rem;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-    }
-    .role-card:hover {
-        border-color: var(--brand-primary);
-        background-color: rgba(99, 102, 241, 0.1);
-    }
-
-    .role-card input:checked ~ span {
-        color: var(--brand-primary);
-        font-weight: 600;
-    }
-
-    .role-card:has(input:checked) {
-        border-color: var(--brand-primary);
-        box-shadow: 0 0 15px var(--brand-glow);
-        background-color: rgba(99, 102, 241, 0.1);
-    }
-
-
-    /* Lifestyle Search Tags */
-    .lifestyle-tag {
-        background-color: var(--card-elevated);
-        border: 1px solid var(--border-dark);
-        color: var(--text-muted);
-        padding: 0.75rem 1rem;
-        border-radius: 9999px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-    .lifestyle-tag:hover {
-        border-color: var(--brand-primary);
-        color: white;
-    }
-
-    .lifestyle-tag input:checked + span {
-        color: white;
-    }
-    .lifestyle-tag:has(input:checked) {
-        background-color: var(--brand-primary);
-        border-color: var(--brand-primary);
-        color: white;
-        box-shadow: 0 0 15px var(--brand-glow);
-    }
+    @keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }
+    .shimmer { background: linear-gradient(to right, transparent 0%, #1e293b 50%, transparent 100%); background-size: 2000px 100%; animation: shimmer 2s linear infinite; }
+    .plan-card.popular { border-color: var(--brand-primary); box-shadow: 0 0 25px rgba(99, 102, 241, 0.3); }
+    .form-input-icon { position: absolute; top: 50%; left: 1rem; transform: translateY(-50%); color: var(--text-muted); }
+    .ad-type-card { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem 1rem; border: 2px solid var(--border-dark); border-radius: 0.75rem; cursor: pointer; transition: all 0.2s ease-in-out; text-align: center; }
+    .ad-type-card:hover { border-color: var(--brand-primary); background-color: rgba(99, 102, 241, 0.1); }
+    input[name="ad_type"]:checked + span { border-color: var(--brand-primary); box-shadow: 0 0 15px var(--brand-glow); background-color: rgba(99, 102, 241, 0.1); }
+    .submit-button-gradient { width: 100%; padding: 0.8rem 1rem; font-weight: 600; color: white; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background-image: linear-gradient(to right, #4f46e5, #6366f1, #818cf8); transition: all 0.3s ease; background-size: 200% auto; border: none; }
+    .submit-button-gradient:hover { box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.6); background-position: right center; }
+    .form-label { display: block; font-weight: 600; color: var(--text-light); margin-bottom: 0.5rem; }
+    .pac-container { background-color: var(--card-elevated); border: 1px solid var(--border-dark); border-radius: 0.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999 !important; }
+    .pac-item { padding: 0.75rem; cursor: pointer; color: var(--text-light); border: none; }
+    .pac-item:hover { background-color: var(--brand-primary); }
+    .pac-item-query { font-weight: 600; }
+    .pac-icon { display: none; }
+    .role-card { padding: 1rem; border: 2px solid var(--border-dark); border-radius: 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s ease-in-out; }
+    .role-card:hover { border-color: var(--brand-primary); background-color: rgba(99, 102, 241, 0.1); }
+    .role-card input:checked ~ span { color: var(--brand-primary); font-weight: 600; }
+    .role-card:has(input:checked) { border-color: var(--brand-primary); box-shadow: 0 0 15px var(--brand-glow); background-color: rgba(99, 102, 241, 0.1); }
+    .lifestyle-tag { background-color: var(--card-elevated); border: 1px solid var(--border-dark); color: var(--text-muted); padding: 0.75rem 1rem; border-radius: 9999px; font-weight: 500; cursor: pointer; transition: all 0.2s ease-in-out; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    .lifestyle-tag:hover { border-color: var(--brand-primary); color: white; }
+    .lifestyle-tag input:checked + span { color: white; }
+    .lifestyle-tag:has(input:checked) { background-color: var(--brand-primary); border-color: var(--brand-primary); color: white; box-shadow: 0 0 15px var(--brand-glow); }
   </style>
-
 </head>
 <body class="antialiased">
 
@@ -368,7 +189,7 @@
             </div>
              <button id="lifestyle-search-btn" class="mt-4 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition-colors flex items-center gap-2 mx-auto">
                 <i class="ph-bold ph-magic-wand"></i> Find My Perfect Plot
-            </button>
+              </button>
         </div>
       </div>
     </section>
@@ -477,14 +298,14 @@
                         <hr class="flex-grow border-t border-border-dark">
                     </div>
                      <div id="otp-step" class="space-y-4">
-                         <div>
+                        <div>
                             <label for="phone" class="font-semibold text-slate-300">Sign In with Mobile Number</label>
                             <div class="relative mt-2">
                                 <i class="ph-bold ph-phone form-input-icon"></i>
                                 <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" class="form-input pl-12">
                             </div>
                         </div>
-                         <div id="otp-container" class="hidden">
+                        <div id="otp-container" class="hidden">
                             <label for="otp" class="font-semibold text-slate-300">Enter OTP</label>
                             <div class="relative mt-2">
                                <i class="ph-bold ph-key form-input-icon"></i>
@@ -531,15 +352,12 @@
             </div>
         </div>
 
-        <!-- Section for sellers (owner, agent, builder) -->
         <div id="seller-profile-section" class="hidden">
             <h3 class="text-2xl font-bold text-white">My Listings</h3>
             <div id="my-listings-container" class="mt-4 space-y-4">
-                <!-- User's listings will be rendered here -->
-            </div>
+                </div>
         </div>
 
-        <!-- Section for buyers -->
         <div id="buyer-profile-section" class="hidden">
             <h3 class="text-2xl font-bold text-white">My Activity</h3>
             <div id="my-activity-container" class="mt-4 space-y-4">
@@ -547,7 +365,7 @@
             </div>
         </div>
     </div>
-</template>
+  </template>
 
   <template id="user-listing-card-template">
     <div class="my-listing-card flex items-center gap-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
@@ -687,11 +505,11 @@
       </div>
       <div class="text-left max-w-sm mx-auto">
            <p class="text-slate-300 text-sm mb-4 text-center">After payment, enter the UPI Transaction ID below to verify.</p>
-          <label for="transaction-id" class="form-label">UPI Transaction ID</label>
-          <input type="text" id="transaction-id" class="form-input" placeholder="Enter 12-digit ID" required>
-          <button id="verify-payment-btn" class="submit-button-gradient mt-4">
-              Verify Payment
-          </button>
+        <label for="transaction-id" class="form-label">UPI Transaction ID</label>
+        <input type="text" id="transaction-id" class="form-input" placeholder="Enter 12-digit ID" required>
+        <button id="verify-payment-btn" class="submit-button-gradient mt-4">
+            Verify Payment
+        </button>
       </div>
     </div>
   </template>
@@ -709,21 +527,21 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <label class="ad-type-card">
                 <input type="radio" name="ad_type" value="featured" class="sr-only" checked>
-                <i class="ph-bold ph-star text-3xl text-amber-400"></i>
+                <span><i class="ph-bold ph-star text-3xl text-amber-400"></i>
                 <span class="font-semibold text-white">Featured Plot</span>
-                <p class="text-xs text-slate-400">Top of search results</p>
+                <p class="text-xs text-slate-400">Top of search results</p></span>
               </label>
               <label class="ad-type-card">
                 <input type="radio" name="ad_type" value="banner" class="sr-only">
-                <i class="ph-bold ph-image text-3xl text-cyan-400"></i>
+                <span><i class="ph-bold ph-image text-3xl text-cyan-400"></i>
                 <span class="font-semibold text-white">Homepage Banner</span>
-                <p class="text-xs text-slate-400">Maximum visibility</p>
+                <p class="text-xs text-slate-400">Maximum visibility</p></span>
               </label>
               <label class="ad-type-card">
                 <input type="radio" name="ad_type" value="social" class="sr-only">
-                <i class="ph-bold ph-share-network text-3xl text-pink-400"></i>
+                <span><i class="ph-bold ph-share-network text-3xl text-pink-400"></i>
                 <span class="font-semibold text-white">Social Promotion</span>
-                <p class="text-xs text-slate-400">Reach a wider audience</p>
+                <p class="text-xs text-slate-400">Reach a wider audience</p></span>
               </label>
             </div>
         </div>
@@ -1008,7 +826,6 @@ const SUPABASE_URL = 'https://usmzzjnoqzdqjxfzwcjn.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVzbXp6am5vcXpkcWp4Znp3Y2puIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc0MTYxMjQsImV4cCI6MjA3Mjk5MjEyNH0.j-rcyzZnJTWtgnscN350OEa8O9q_3EIiVdIn0E0s2Sc';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-
 const state = {
     plots: [],
     currentUser: null,
@@ -1021,7 +838,7 @@ const state = {
     priceChart: null,
     loginVisualId: null,
     contextPlot: null,
-    plan: 'free', // Default plan
+    plan: 'free',
     googleMapsReady: false, 
     googleMapsResolve: null,
     plotImages: [],
